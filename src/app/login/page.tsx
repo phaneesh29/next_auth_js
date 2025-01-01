@@ -66,6 +66,7 @@ export default function LoginPage() {
             <div className="flex flex-col justify-center items-start gap-1 text-lg">
                 <label className="w-[100px]" htmlFor="password">Password</label>
                 <input value={user.password} type="password" id="password" onChange={(e) => setUser({ ...user, password: e.target.value })} placeholder="Password" className="bg-transparent ring-2 ring-slate-700 p-2 rounded-lg w-[300px] focus:outline-none" />
+                <span className="text-sm mt-2">Forgot password, <Link href="/forgot" className="text-indigo-500">Click here </Link></span>
             </div>
 
             <div className="flex flex-col justify-center  gap-1 text-lg">

@@ -71,7 +71,11 @@ export default function ProfilePage() {
             <div className="flex items-center flex-col h-screen w-screen">
                 <div className="flex justify-between w-screen items-center py-4 px-7">
                     <div className="text-2xl font-semibold">Profile</div>
-                    <button onClick={onLogout} disabled={isButtonDisabled} className={`p-2 rounded-lg bg-orange-500 font-semibold hover:bg-orange-700 transition-all text-black hover:text-white duration-300 text-lg ${isButtonDisabled ? "cursor-not-allowed" : "cursor-pointer"}`}>{isButtonDisabled ? "Logging Out" : "Logout"}</button>
+                    <div className="flex gap-3 justify-center items-center">
+                        <Link href="/forgot" className="p-2 rounded-lg bg-slate-600 font-semibold hover:bg-slate-700 transition-all duration-300 text-lg">Change Password</Link>
+                        <button onClick={onLogout} disabled={isButtonDisabled} className={`p-2 rounded-lg bg-orange-500 font-semibold hover:bg-orange-700 transition-all text-black hover:text-white duration-300 text-lg ${isButtonDisabled ? "cursor-not-allowed" : "cursor-pointer"}`}>{isButtonDisabled ? "Logging Out" : "Logout"}</button>
+                    </div>
+
                 </div>
                 <div className="mt-24 border-4 border-gray-500 p-6 bg-slate-950 rounded-lg text-xl flex flex-col justify-center gap-5">
                     <h1><span className="font-semibold">UUID</span> : <Link href={`/profile/${data._id}`}>{data._id}</Link></h1>

@@ -15,6 +15,7 @@ export async function POST(request: NextRequest) {
         }
 
         const user = await User.findOne({ email })
+
         if (!user) {
             return NextResponse.json({ error: "User doesn't exist" }, { status: 400 })
         }
@@ -23,6 +24,11 @@ export async function POST(request: NextRequest) {
 
         if (!validatePassword) {
             return NextResponse.json({ error: "Invalid Password or Email" }, { status: 400 })
+        }
+
+        if (!user.isVerified) {
+            return NextResponse.json({ error: "Please verify account" }, { status: 400 })
+
         }
 
         const tokenData = {
